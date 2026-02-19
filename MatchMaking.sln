@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchMaking.Service", "src\MatchMaking.Service\MatchMaking.Service.csproj", "{3AF7A86B-41EC-46EE-86A2-0465C0310F52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchMaking.Worker", "src\MatchMaking.Worker\MatchMaking.Worker.csproj", "{AFD1D91E-D1B5-4679-8200-5BD804D711CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{12C5549F-A895-43FF-B992-32FD6F05820F}"
+	ProjectSection(SolutionItems) = preProject
+		infrastructure\docker-compose.yaml = infrastructure\docker-compose.yaml
+		infrastructure\Dockerfile.service = infrastructure\Dockerfile.service
+		infrastructure\Dockerfile.state = infrastructure\Dockerfile.state
+		infrastructure\Dockerfile.worker = infrastructure\Dockerfile.worker
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{59F05AB7-5A5D-4604-9D08-8CC47529E641}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{D8026D03-3358-42FE-BADC-DC9359A3C67D}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.MD = Readme.MD
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchMaking.Common", "src\MatchMaking.Common\MatchMaking.Common.csproj", "{FBA660B9-8F1F-4F39-A4B3-AC016DF6706E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AF7A86B-41EC-46EE-86A2-0465C0310F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF7A86B-41EC-46EE-86A2-0465C0310F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF7A86B-41EC-46EE-86A2-0465C0310F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF7A86B-41EC-46EE-86A2-0465C0310F52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFD1D91E-D1B5-4679-8200-5BD804D711CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD1D91E-D1B5-4679-8200-5BD804D711CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD1D91E-D1B5-4679-8200-5BD804D711CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD1D91E-D1B5-4679-8200-5BD804D711CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA660B9-8F1F-4F39-A4B3-AC016DF6706E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA660B9-8F1F-4F39-A4B3-AC016DF6706E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA660B9-8F1F-4F39-A4B3-AC016DF6706E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA660B9-8F1F-4F39-A4B3-AC016DF6706E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3AF7A86B-41EC-46EE-86A2-0465C0310F52} = {59F05AB7-5A5D-4604-9D08-8CC47529E641}
+		{AFD1D91E-D1B5-4679-8200-5BD804D711CE} = {59F05AB7-5A5D-4604-9D08-8CC47529E641}
+		{FBA660B9-8F1F-4F39-A4B3-AC016DF6706E} = {59F05AB7-5A5D-4604-9D08-8CC47529E641}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7A23FE8-552C-47BB-A04B-6D45E196AF29}
+	EndGlobalSection
+EndGlobal

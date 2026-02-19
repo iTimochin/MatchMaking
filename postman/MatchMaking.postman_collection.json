@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "e4266c68-7853-43a2-a0e7-7d615eab7997",
+		"name": "MatchMaking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5292857"
+	},
+	"item": [
+		{
+			"name": "ReqestUserToMatch",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.set(\"userId\", crypto.randomUUID());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"{{userId}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5232/Match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5232",
+					"path": [
+						"Match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5232/Match/{userId}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5232",
+					"path": [
+						"Match",
+						"{userId}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
