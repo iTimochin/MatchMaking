@@ -1,3 +1,6 @@
 ﻿namespace MatchMaking.Worker.Options;
 
-internal record MatchOptions(int MaxAmountOfPlayersInMatch);
+internal sealed class MatchOptions
+{
+	public required int MaxAmountOfPlayersInMatch { get; init; }
+}

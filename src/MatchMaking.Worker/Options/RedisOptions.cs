@@ -1,8 +1,9 @@
 ﻿namespace MatchMaking.Worker.Options;
 
-internal record RedisOptions
-(
-	string ConnectionString,
-	int RetryCount,
-	int RetryDelayMilliseconds
-);
+internal sealed class RedisOptions
+{
+	public required string ConnectionString { get; init; }
+	public required int RetryCount { get; init; }
+	public required int RetryDelayMilliseconds { get; init; }
+}
+

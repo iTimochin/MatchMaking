@@ -48,7 +48,7 @@ internal sealed class AddUserToMatchHandler(
 			}
 		}
 
-		// If no existing match could be locked → create new match
+		// If no existing matches could be locked → create new match
 		await CreateNewWorkerMatch(user!);
 	}
 
@@ -97,13 +97,14 @@ internal sealed class AddUserToMatchHandler(
 		var lockAcquired = await _redis.LockTakeAsync(lockKey, lockValue, TimeSpan.FromSeconds(1));
 
 		if (!lockAcquired)
+		{ 
 			return false;
+		}	
 
 		try
 		{
 			var matchData = await _redis.StringGetAsync((string)matchKey!);
 			var workerMatchModel = JsonSerializer.Deserialize<WorkerMatch>(matchData!)!;
-			var workerMatchModelJson = JsonSerializer.Serialize(workerMatchModel)!;
 
 			workerMatchModel.Match.UserIds.Add(user.UserId);
 			workerMatchModel.UserCount++;
@@ -114,11 +115,11 @@ internal sealed class AddUserToMatchHandler(
 				await _messageProducer.Publish(workerMatchModel.Match);
 				await _redis.KeyDeleteAsync(matchKey);
 				await _redis.SetRemoveAsync("matches:all", (string)matchKey!);
-				Logger.Information("Match fulfilled: {match}", workerMatchModelJson);
+				Logger.Information("Match fulfilled: {match}", JsonSerializer.Serialize(workerMatchModel)!);
 			}
 			else
 			{
-				await _redis.StringSetAsync(matchKey, workerMatchModelJson);
+				await _redis.StringSetAsync(matchKey, JsonSerializer.Serialize(workerMatchModel)!);
 			}
 
 			return true;
